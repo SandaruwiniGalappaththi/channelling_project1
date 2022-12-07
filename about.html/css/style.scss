@@ -1,7 +1,7 @@
 $white: #ffffff;
 $black: #000000;
-$primary1: #62d2a2;
-$primary2: #1fab89;
+$primary1: #2b57b6;
+$primary2: #2b57b6;
 $textCol: #1f1f1f;
 
 // import fonts - font-family: 'Nunito', sans-serif;
@@ -142,7 +142,7 @@ a:focus {
 .sub_page {
   .hero_area {
     min-height: auto;
-    background-color: darken($color: $primary2, $amount: 10);
+    background-color:#2b57b6;
 
     .hero_bg_box {
       display: none;
@@ -273,7 +273,7 @@ a:focus {
   }
 
   .detail-box {
-    color: $primary2;
+    color:#2b57b6;
 
     h1 {
       font-size: 3rem;
