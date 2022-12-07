@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="appointment.css">
+<style>
+
+
+h2{
+    font-family: "Montserrat", sans-serif;
+    text-align:center;
+
+}
+.outline{
+    position: absolute;
+    width: 40%;
+
+}
+label{
+    font-weight:500;
+}
+* {
+    box-sizing: border-box;
+  }
+  
+  input[type=text], select, textarea ,input[type=date]{
+    width: 70%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+
+  }
+  
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  input[type=submit] {
+    background-color: darkblue;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: none;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  .container {
+    position:absolute;
+    top:16%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 40px;
+    width: 60%;
+    
+  }
+  
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+}
+
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal,.modal1,.modal2,.modal3,.modal4 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close,.close1,.close2,.close3,.close4 {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: lightskyblue;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: lightskyblue;
+  color: white;
+}
+
+.lpt1{
+    background-color:black;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 4px;
+}
+
+.side{
+    position: absolute;
+    left: 60%;
+}
+.styl{
+    background-color: darkblue;
+    color: #f2f2f2;
+    font-weight: bold;
+    height: 60px;
+    margin: 6%;
+    width: 450px;
+    border-radius: 3%;
+    
+}
+
+.styl:hover {
+  box-shadow: 0 12px 16px 0 rgba(7, 9, 122, 0.24),0 17px 50px 0 rgba(1, 4, 21, 0.19);
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body><div class="side">
+<!-- Trigger/Open The Modal -->
+<button class="styl" id="myBtn">Our Child And Adolescent Phychiatrists</button>
+<br>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Child And Adolescent Phychiatrists</h2>
+    </div>
+    <div class="modal-body">
+      <p>Dr. M.T.Jayathissa</p>
+      <p>Dr. G.L.Dissanayake</p>
+    </div>
+    <div class="modal-footer">
+      <h3></h3>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Trigger/Open The Modal -->
+<button class="styl" id="myBtn1">Our Consultants</button>
+<br>
+<!-- The Modal -->
+<div id="myModal1" class="modal1">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close1">&times;</span>
+      <h2>Consultants</h2>
+    </div>
+    <div class="modal-body">
+      <p>Dr. P.Subramanium</p>
+      <p>Dr. M.B.Kumarasiri</p>
+      <p>Dr. J.Withanage</p>
+    </div>
+    <div class="modal-footer">
+      <h3></h3>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Trigger/Open The Modal -->
+<button  class="styl" id="myBtn2">Our Ayurvedic General Physicians</button>
+<br>
+<!-- The Modal -->
+<div id="myModal2" class="modal2">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close2">&times;</span>
+      <h2>Ayurvedic General Physicians</h2>
+    </div>
+    <div class="modal-body">
+      <p>Dr. D.P.L.Fernando</p>
+      <p></p>
+    </div>
+    <div class="modal-footer">
+      <h3></h3>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Trigger/Open The Modal -->
+<button class="styl" id="myBtn3">Our Cardiologists</button>
+<br>
+<!-- The Modal -->
+<div id="myModal3" class="modal3">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close3">&times;</span>
+      <h2>Cardiologists</h2>
+    </div>
+    <div class="modal-body">
+      <p>Dr. I.P.Rathnayake</p>
+      <p></p>
+    </div>
+    <div class="modal-footer">
+      <h3></h3>
+    </div>
+  </div>
+
+</div>
+
+<!-- Trigger/Open The Modal -->
+<button class="styl" id="myBtn4">Our Consultant Dental Surgeons</button>
+<br>
+<!-- The Modal -->
+<div id="myModal4" class="modal4">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close4">&times;</span>
+      <h2>Consultant Dental Surgeons</h2>
+    </div>
+    <div class="modal-body">
+      <p>Dr. A.Sirimanna</p>
+      <p></p>
+    </div>
+    <div class="modal-footer">
+      <h3></h3>
+    </div>
+  </div>
+
+</div>
+</div>
+
+    <div class="container">
+<h2>Make an Appointment</h2>
+
+  <form method = "POST" action="appointment.php">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">First Name</label>
+      </div>
+      <div class="col-75">
+        <input required type="text" id="fname" name="firstname" placeholder="Enter First Name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Last Name</label>
+      </div>
+      <div class="col-75">
+        <input required type="text" id="lname" name="lastname" placeholder="Enter Lat Name">
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-25">
+          <label for="subject">NIC</label>
+        </div>
+        <div class="col-75">
+          <input required type="text"id="nic" name="nic" placeholder="Enter NIC">
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="country">Doctor's Name</label>
+      </div>
+      <div class="col-75">
+        <select required id="country" name="doctor">
+            <option disabled >Select Doctor</option>
+            <option value="M.T.Jayathissa">Dr. M.T.Jayathissa</option>
+            <option value="G.L.Dissanayake">Dr. G.L.Dissanayake</option>
+            <option value="P.Subramanium">Dr. P.Subramanium</option>
+            <option value="D.P.L.Fernando">Dr. D.P.L.Fernando</option>
+            <option value="I.P.Rathnayake">Dr. I.P.Rathnayake</option>
+            <option value="A.Sirimanna">Dr. A.Sirimanna</option>
+            <option value="M.B.Kumarasiri">Dr. M.B.Kumarasiri</option>
+            <option value="J.Withanage">Dr. J.Withanage</option>
+          </select>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-25">
+          <label for="date">Date</label>
+        </div>
+        <div class="col-75">
+          <input required type="date"id="date" name="date">
+        </div>
+      </div>
+    <br>
+    <div class="row">
+       <center>
+      <input style="background-color: darkblue;left: 10%;" type="submit" name="btsubmit" value="Submit">
+      <a href="register.html"><button class="lpt1" type="button">Back</button></a></center>
+    </div>
+  </form>
+</div>
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+
+// Get the modal
+var modal1 = document.getElementById("myModal1");
+    
+    // Get the button that opens the modal
+    var btn1 = document.getElementById("myBtn1");
+    
+    // Get the <span> element that closes the modal
+    var span1 = document.getElementsByClassName("close1")[0];
+    
+    // When the user clicks the button, open the modal 
+    btn1.onclick = function() {
+      modal1.style.display = "block";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span1.onclick = function() {
+      modal1.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal1) {
+        modal1.style.display = "none";
+      }
+    }
+
+
+    // Get the modal
+var modal2 = document.getElementById("myModal2");
+    
+    // Get the button that opens the modal
+    var btn2 = document.getElementById("myBtn2");
+    
+    // Get the <span> element that closes the modal
+    var span2 = document.getElementsByClassName("close2")[0];
+    
+    // When the user clicks the button, open the modal 
+    btn2.onclick = function() {
+      modal2.style.display = "block";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span2.onclick = function() {
+      modal2.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal2) {
+        modal2.style.display = "none";
+      }
+    }
+
+    // Get the modal
+var modal3 = document.getElementById("myModal3");
+    
+    // Get the button that opens the modal
+    var btn3 = document.getElementById("myBtn3");
+    
+    // Get the <span> element that closes the modal
+    var span3 = document.getElementsByClassName("close3")[0];
+    
+    // When the user clicks the button, open the modal 
+    btn3.onclick = function() {
+      modal3.style.display = "block";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span3.onclick = function() {
+      modal3.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal3) {
+        modal3.style.display = "none";
+      }
+    }
+
+    // Get the modal
+var modal4 = document.getElementById("myModal4");
+    
+    // Get the button that opens the modal
+    var btn4 = document.getElementById("myBtn4");
+    
+    // Get the <span> element that closes the modal
+    var span4 = document.getElementsByClassName("close4")[0];
+    
+    // When the user clicks the button, open the modal 
+    btn4.onclick = function() {
+      modal4.style.display = "block";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span4.onclick = function() {
+      modal4.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal4) {
+        modal4.style.display = "none";
+      }
+    }
+
+
+
+
+    </script>
+</body>
+</html>
