@@ -1,139 +1,457 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
 <style>
-    .gradient-custom {
-/* fallback for old browsers */
-background: #f093fb;
 
-/* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(to bottom right, rgb(147, 213, 251), rgb(33, 23, 139));
-
-/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background: linear-gradient(to bottom right, rgb(147, 228, 251), rgb(87, 184, 245))
-}
-
-.card-registration .select-input.form-control[readonly]:not([disabled]) {
-font-size: 1rem;
-line-height: 2.15;
-padding-left: .75em;
-padding-right: .75em;
-}
-.card-registration .select-arrow {
-top: 13px;
-}
+.w3-sidebar a {font-family: "Roboto", sans-serif}
+h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
 
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Full-width input fields */
+input[type=text],input[type=email], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
   border: none;
-  border-radius: 4px;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: darkblue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 56%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container1 {
+  padding: 16px;
+  position: absolute;
+  width: 60%;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: cornflowerblue;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
   cursor: pointer;
 }
 
-input[type=submit]:hover {
-  background-color: #45a049;
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+
+body {
+  font-family: Arial;
+  margin: 3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+  height: 30%;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: absolute;
+  width: 80%;
+  left: 20%;
+  top:10%;
+ 
+  
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+  height: 30%;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: darkblue;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+.lpt{
+position: absolute;
+left:92%;
+border-radius:5% ;
+
+}
+.lpt1{
+  position: absolute;
+  left:80%;
+  background-color: red;
+  border-radius:5% ;
+}
+i{
+  color: darkblue;
 }
 </style>
-</head>
+
 <body>
-<section class="vh-100 gradient-custom">
-    <div class="container py-5 h-100">
-      <div class="row justify-content-center align-items-center h-100">
-        <div class="col-12 col-lg-9 col-xl-7">
-          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-            <div class="card-body p-4 p-md-5">
-              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
-              <form>
-  <table>
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-  
-                   <div class="form-outline">
-                      <tr><th><label class="form-label" for="firstName">First Name</label></th>
-                     <th><input type="text" id="firstName" class="form-control form-control-lg" /></th>
-                      </tr>
-                    </div>
-  
-                  </div>
-                  <div class="col-md-6 mb-4">
-  
-                    <div class="form-outline">
-                      <tr><th> <label class="form-label" for="lastName">Last Name</label></th>
-                    <th><input type="text" id="lastName" class="form-control form-control-lg" /></th>
-                      </tr>
-                    </div>
-  
-                  </div>
-                </div>
-  
-                <div class="row">
-                  <div class="col-md-6 mb-4 d-flex align-items-center">
-  
-                     <div class="form-outline datepicker w-100">
-                      <tr><th> <label for="birthdayDate" class="form-label">Birthday</label></th>
-                     <th> <input type="text" class="form-control form-control-lg" id="birthdayDate" /></th>
-                      </tr>
-                      
-                    </div>
-  
-                  </div>
-                 </div>
-  </table>
-                    <h4 class="mb-2 pb-1">Gender: </h4>
-                    <div class="col-md-6 mb-4">
-  
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                        value="option1" checked />
-                      <label class="form-check-label" for="femaleGender">Female</label>
-                    </div>
-  
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                        value="option2" />
-                      <label class="form-check-label" for="maleGender">Male</label>
-                    </div>
-  
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
-                        value="option3" />
-                      <label class="form-check-label" for="otherGender">Other</label>
-                    </div>
-  
-                  </div>
-                </div>
-  <table>
-                <div class="row">
-                  <div class="col-md-6 mb-4 pb-2">
-  <br>
-                    <div class="form-outline">
-                      <tr><th> <label class="form-label" for="emailAddress">Email</label></th>
-                      <th><input type="email" id="emailAddress" class="form-control form-control-lg" /></th></tr>
-                    </div>
-  
-                  </div>
-                  <div class="col-md-6 mb-4 pb-2">
-  
-                    <div class="form-outline">
-                      <tr><th><label class="form-label" for="phoneNumber">Phone Number</label></th>
-                      <th><input type="tel" id="phoneNumber" class="form-control form-control-lg" /></th></tr>
-                     
-                    </div>
-                  </div>
-                </div>
-  </table>
-                <br>
-                <div class="mt-4 pt-2">
-                  <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
-                  <br><br>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
+
+
+<a href="appointment.html"><button style="width:auto;" class="lpt1">Your Appointment</button></a>
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="lpt">Sign Up</button>
+<br><br>
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form method = "post" class="modal-content" action="register.php">
+    <div class="container1">
+      <font color = "white"><h1><b>Sign Up & Create New Account</b></h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+      <label for="firstName"><b>First Name</b></label>
+      <input type="text" placeholder="Enter First Name" name="firstname" required>
+
+      <label for="pd"><b>Last Name</b></label>
+      <input type="text" placeholder="Enter Last Name" name="lastname" required>
+
+      <label for="nc"><b>NIC</b></label>
+      <input type="text" placeholder="Enter NIC" name="nic" required>
+
+      <label for="gnd"><b>Gender</b></label><br><br>
+      Male
+      <input type="radio" value="male" checked name="gender">
+      Female 
+      <input type="radio" value="female"name="gender"><br><br>
+
+      <label for="ag"><b>Age</b></label>
+      <input type="text" placeholder="Enter Age" name="age" required>
+
+      <label for="cty"><b>City</b></label>
+      <input type="text" placeholder="Enter City" name="city" required>
+
+      <label for="mob"><b>Mobile</b></label>
+      <input type="text" placeholder="Enter Mobile Number" name="mobile" required>
+
+      <label for="emal"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email" name="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="pwd" required>
+
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="pwdrepeat" required>
+      
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>
+
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p></font>
+
+      <div class="clearfix">
+        <button type="submit" name="btsubmit" class="signupbtn">Register & Sign Up</button>
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        
       </div>
     </div>
-  </section>
+  </form>
+</div>
+
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <img src="images/p1.jpg"style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+    <img src="images/p2.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+    <img src="images/p3.jpg" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+    <img src="images/p4.jpg" style="width:100%;">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+    <img src="images/p5.jpg" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+    <img src="images/p6.jpg" style="width:100%">
+  </div>
+    
+  <a class="prev" onclick="plusSlides(-1)"><</a>
+  <a class="next" onclick="plusSlides(1)">></a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="images/p1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Be Connected">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="images/p2.jpg" style="width:100%" onclick="currentSlide(2)" alt="Take an Appointment">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="images/p3.jpg" style="width:100%" onclick="currentSlide(3)" alt="We are Special">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="images/p4.jpg" style="width:100%" onclick="currentSlide(4)" alt="About Us">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="images/p5.jpg" style="width:100%" onclick="currentSlide(5)" alt="Contact Us">
+    </div>    
+    <div class="column">
+      <img class="demo cursor" src="images/p6.jpg" style="width:100%" onclick="currentSlide(6)" alt="Covid">
+    </div>
+  </div>
+</div>
+
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px;bottom: 10%;" id="mySidebar">
+  <div class="w3-container w3-display-container w3-padding-16">
+    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+    <img src="images/lg.png" height="55%" width="55%" style="left:10%;" >
+    <p class="w3-wide"><b>HEALTH PARTNER</b></p>
+  </div>
+  <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+    <a href="#" class="w3-bar-item w3-button"><i style='font-size:19px' class='fas'>&#xf0f3;</i> Make An Appointment</a>
+    <a href="#" class="w3-bar-item w3-button"><i style='font-size:19px' class='fas'>&#xf2bb;</i> Be Conected</a>
+    <a href="#" class="w3-bar-item w3-button" id="myBtn"><i style='font-size:19px' class='fas'>&#xf0c0;</i> Our Family</a>
+    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+      <a href="#" class="w3-bar-item w3-button w3-light-grey"> We are Special</a>
+      <a href="#" class="w3-bar-item w3-button"> </a>
+      <a href="#" class="w3-bar-item w3-button">Contact Us</a>
+      <a href="#" class="w3-bar-item w3-button">Straight</a>
+    </div>
+    <a href="#" class="w3-bar-item w3-button"><i style='font-size:19px' class='fas'>&#xf0a3;</i> We Are Special</a>
+    <a href="#" class="w3-bar-item w3-button"><i style='font-size:19px' class='fas'>&#xf4c2;</i> About Us</a>
+    <a href="#" class="w3-bar-item w3-button"><i style='font-size:19px' class='fas'>&#xf2b5;</i> Contact Us</a>
+    <a href="#" class="w3-bar-item w3-button"></a>
+    <a href="#" class="w3-bar-item w3-button"></a>
+    <a href="#" class="w3-bar-item w3-button"></a>
+    
+  </div>
+  <a href="#footer" class="w3-bar-item w3-button w3-padding"></a> 
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
+  <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
+</nav>
+
+
+
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  let captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+
+    
+
+
+
+</script>
+
+</body>
+</html>
