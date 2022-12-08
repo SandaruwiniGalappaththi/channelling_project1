@@ -3,6 +3,8 @@ include "config.php";
 
 if(isset($_GET['nic'])){
     $nic = $_GET['nic'];
+    $m = 'insert';
+
 
     $query = mysqli_query($con,"SELECT * FROM appointment WHERE nic='$nic'");
     $row = mysqli_fetch_array($query);
@@ -31,21 +33,43 @@ if(isset($_GET['nic'])){
 	$date ="";
 }
 
+if (isset($_GET['unic'])) {
+  $unic = $_GET['unic'];
+  $m = 'update';
+
+
+  $query = mysqli_query($con, "SELECT * FROM appointment WHERE nic='$unic'");
+  $row = mysqli_fetch_array($query);
+
+  $id = $row['id'];
+  $firstname = $row['firstname'];
+  $lastname = $row['lastname'];
+  $nic = $row['nic'];
+  $doctor = $row['doctor'];
+  $date = $row['date'];
+
+  $query1 = mysqli_query($con, "SELECT * FROM available WHERE doctor='$doctor' and date='$date'");
+  $row1 = mysqli_fetch_array($query1);
+  $starttime = $row1['starttime'];
+  $endtime = $row1['endtime'];
+}
+
+
+
 if(isset($_POST['btupdate'])){
 
     $id = $_POST['id'];
     $firstname = $_POST['firstname'];
 	  $lastname = $_POST['lastname'];
-	  $nic = $_POST['nic'];
+	  $unic = $_POST['nic'];
 	  $doctor = $_POST['doctor'];
 	  $date = $_POST['date'];
+    
 	
-	
-    $sql = "UPDATE appointment SET firstname='$firstname',lastname='$lastname',nic='$nic',doctor='$doctor',date='$date' WHERE id='$id'";
+    $sql = "UPDATE appointment SET firstname='$firstname',lastname='$lastname',nic='$unic',doctor='$doctor',date='$date' WHERE id='$id'";
         
         if(mysqli_query($con,$sql)) {
-            echo 'Appointment Updated Sucessfully';
-            header("Location: register.html");
+            header("Location: appointment_preview.php?unic=$unic");
             
         } 
         else {
@@ -61,8 +85,7 @@ if(isset($_POST['delete'])){
     $sql = "DELETE FROM appointment WHERE id='$id'";
         
     if(mysqli_query($con,$sql)) {
-        echo 'Appointment Cancelled';
-        header("Location: register.html");
+        header("Location: register.html?id=$id");
     } 
     else {
         echo "Error: " . $sql . "<br>" . mysqli_error($con);
@@ -83,6 +106,9 @@ if(isset($_POST['delete'])){
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="appointment.css">
 <link rel="stylesheet" href="app_preview.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
 
 
@@ -112,9 +138,7 @@ label{
     resize: vertical;
 
   }
-  body{
-    background-color: darkblue;
-  }
+ 
   label {
     padding: 12px 12px 12px 0;
     display: inline-block;
@@ -172,7 +196,11 @@ label{
 }
 
 
-body {font-family: Arial, Helvetica, sans-serif;}
+body {
+font-family: Arial, Helvetica, sans-serif;
+background-image: url("images/p7.jpg");
+background-size: cover;
+}
 
 .lpt1{
     background-color:black;
@@ -193,13 +221,26 @@ body {font-family: Arial, Helvetica, sans-serif;}
     margin-right: 4px;
 }
 
-
+.lp{
+  position: relative;
+  left: 0%;
+  width:100%;
+  display: none;
+}
 
 </style>
 </head>
 <body>
+<div id="alt" class="alert alert-success alert-dismissible lp">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success! Appointment is Scheduled</strong> 
+  </div>
+  <div id="altu" class="alert alert-success alert-dismissible lp">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success! Appointment is Updated</strong> 
+  </div>
     <div class="container">
-<h2>Make an Appointment</h2>
+<h2>You can Update</h2>
 
   <form method = "POST" action="appointment_preview.php">
   <input type="hidden" class="input" name="id" value="<?php echo $id; ?>" >
@@ -237,14 +278,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <select required id="doct" name="doctor">
             <option disabled >Select Doctor</option>
             <option selected value="<?php echo $doctor; ?>"><?php echo $doctor; ?></option>
-            <option value="Dr. M.T.Jayathissa">Dr. M.T.Jayathissa</option>
-            <option value="Dr. G.L.Dissanayake">Dr. G.L.Dissanayake</option>
-            <option value="Dr. P.Subramanium">Dr. P.Subramanium</option>
-            <option value="Dr. D.P.L.Fernando">Dr. D.P.L.Fernando</option>
-            <option value="Dr. I.P.Rathnayake">Dr. I.P.Rathnayake</option>
-            <option value="Dr. A.Sirimanna">Dr. A.Sirimanna</option>
-            <option value="Dr. M.B.Kumarasiri">Dr. M.B.Kumarasiri</option>
-            <option value="Dr. J.Withanage">Dr. J.Withanage</option>
+            <option value="M.T.Jayathissa">Dr. M.T.Jayathissa</option>
+            <option value="G.L.Dissanayake">Dr. G.L.Dissanayake</option>
+            <option value="P.Subramanium">Dr. P.Subramanium</option>
+            <option value="D.P.L.Fernando">Dr. D.P.L.Fernando</option>
+            <option value="I.P.Rathnayake">Dr. I.P.Rathnayake</option>
+            <option value="A.Sirimanna">Dr. A.Sirimanna</option>
+            <option value="M.B.Kumarasiri">Dr. M.B.Kumarasiri</option>
+            <option value="J.Withanage">Dr. J.Withanage</option>
           </select>
        
       </div>
@@ -273,10 +314,25 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="callout-header">Available time</div>
   <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
   <div class="callout-container">
-    <p><?php echo $doctor; ?>is available on <?php echo $date1; ?> from <?php echo $starttime; ?> to <?php echo $endtime; ?></p>
+    <p><?php echo $doctor; ?>is available on <?php echo $date; ?> from <?php echo $starttime; ?> to <?php echo $endtime; ?></p>
   </div>
 </div>
+<script>
+// then echo it into the js/html stream
+// and assign to a js variable
+spge = '<?php echo $m ;?>';
 
+// then
+if(spge =='insert'){
+  document.getElementById("alt").style.display = "block";
+}
+
+if(spge =='update'){
+  document.getElementById("altu").style.display = "block";
+}
+document.write('<?php echo $doctor ;?>');
+console.log('<?php echo $doctor ;?>');
+</script>
 
 </body>
 </html>

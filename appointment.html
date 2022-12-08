@@ -374,7 +374,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <br>
     <div class="row">
        <center>
-      <input style="background-color: darkblue;left: 10%;" type="submit" name="btsubmit" value="Submit">
+      <input style="background-color: darkblue;left: 10%;" type="submit" id="sbmt" name="btsubmit" value="Submit">
       <a href="register.html"><button class="lpt1" type="button">Back</button></a></center>
     </div>
   </form>
@@ -512,8 +512,11 @@ var modal4 = document.getElementById("myModal4");
       }
     }
 
-
-
+    var btn0 = document.getElementById("sbmt");
+    var lp = document.getElementById("alt");
+    btn0.onclick = function() {
+      lp.style.display = "block";
+    }
 
     </script>
 </body>
