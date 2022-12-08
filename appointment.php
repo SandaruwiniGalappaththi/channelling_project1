@@ -16,6 +16,7 @@ if(isset($_POST["btsubmit"])){
 	$sql = "INSERT INTO appointment(id,firstname,lastname,nic,doctor,date) VALUES('','$fristname' ,'$lastname','$nic','$doctor','$date')";
 	if(mysqli_query($con,$sql)) {
         header("Location: appointment_preview.php?nic=$nic");
+		
 	}else{
 		echo "Error: " . $sql . "<br>" . mysqli_error($con);
 	}
