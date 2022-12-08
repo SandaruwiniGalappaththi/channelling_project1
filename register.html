@@ -245,7 +245,122 @@ border-radius:5% ;
   border-radius:5% ;
 }
 i{
-  color: darkblue;
+  color: rgb(128, 128, 213);
+}
+/* footer css part*/
+html,body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, Sans-serif;
+  background-color: #acc2f4;
+}
+.dummy_page {
+  height: 200px;
+  width: 100%;
+  background-color: #f0f0f0;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 60px 0px;
+}
+/* STYLES SPECIFIC TO FOOTER  */
+.footer {
+  width: 100%;
+  position: relative;
+  height: auto;
+  background-color: #2b57b6;
+}
+.footer .col {
+  width: 190px;
+  height: auto;
+  float: left;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 0px 15px 15px 15px;
+}
+.footer .col h1 {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 17px;
+  padding: 20px 0px 5px 0px;
+  color: rgba(255,255,255,0.2);
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.250em;
+}
+.footer .col ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.footer .col ul li {
+  color: #999999;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: bold;
+  padding: 5px 0px 5px 0px;
+  cursor: pointer;
+  transition: .2s;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+}
+.social ul li {
+  display: inline-block;
+  padding-right: 5px !important;
+}
+
+.footer .col ul li:hover {
+  color: #1309d3;
+  transition: .1s;
+  -webkit-transition: .1s;
+  -moz-transition: .1s;
+}
+.clearfix {
+  clear: both;
+}
+@media only screen and (min-width: 1280px) {
+  .contain {
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 1139px) {
+  .contain .social {
+    width: 1000px;
+    display: block;
+  }
+  .social h1 {
+    margin: 0px;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .footer .col {
+    width: 33%;
+  }
+  .footer .col h1 {
+    font-size: 14px;
+  }
+  .footer .col ul li {
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 500px) {
+    .footer .col {
+      width: 50%;
+    }
+    .footer .col h1 {
+      font-size: 14px;
+    }
+    .footer .col ul li {
+      font-size: 13px;
+    }
+}
+@media only screen and (max-width: 340px) {
+  .footer .col {
+    width: 100%;
+  }
 }
 </style>
 
@@ -369,11 +484,42 @@ i{
       <img class="demo cursor" src="images/p6.jpg" style="width:100%" onclick="currentSlide(6)" alt="Covid">
     </div>
   </div>
+   <!-- FOOTER START -->
+   <div class="footer">
+    <div class="contain">
+    <div class="col">
+      <ul>
+        <li><h4>Contact us.....</h4></li>
+        <li><i class="fa fa-map-marker" aria-hidden="true"></i>
+          <span>Location</span>
+        </li>
+       
+        <li><i class="fa fa-phone" aria-hidden="true"></i>
+          <span>
+            Call +000000000000
+          </span></li>
+
+        <li><i class="fa fa-envelope" aria-hidden="true"></i>
+          <span>
+            HealthPartner@gmail.com
+          </span></li></ul>
+    </div>
+  </div>
+
+  <div class="col">
+    <ul>
+       <li><h4>About us</h4></li>
+       <li><p> You are in the Right Place at the Right Time</p></li>
+      </ul>
+    </div>
+  <div class="clearfix"></div>
+  
+  </div>
+  <!-- END OF FOOTER -->
 </div>
 
-
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px;bottom: 10%;" id="mySidebar">
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width: 408px;bottom: 10%;" id="mySidebar">
   <div class="w3-container w3-display-container w3-padding-16">
     <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
     <img src="images/lg.png" height="55%" width="55%" style="left:10%;" >
@@ -397,10 +543,7 @@ i{
     <a href="#" class="w3-bar-item w3-button"></a>
     
   </div>
-  <a href="#footer" class="w3-bar-item w3-button w3-padding"></a> 
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
-  <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
-</nav>
+ </nav>
 
 
 
@@ -448,8 +591,6 @@ function showSlides(n) {
 }
 
     
-
-
 
 </script>
 
