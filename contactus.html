@@ -9,7 +9,18 @@ body {font-family: Arial, Helvetica, sans-serif;}
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgb(0, 0, 0);
   border-radius: 4px;
   box-sizing: border-box;
   margin-top: 6px;
@@ -32,28 +43,18 @@ input[type=submit]:hover {
 
 .container {
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #71a8ec;
   padding: 20px;
 }
-.column1 {
-    float: left;
-    width:max-content
-  }
-  
-  .column2 {
-    float: left;
-    background-color: #86077c;
-    width:inherit
-  }
-
 </style>
 </head>
 <body>
 
-<h3>Write us</h3>
+<h3>Contact Form</h3>
 
-<form class="column1">
-  <div class="column1">
+<div class="container">
+  <form action="/action_page.php">
+    <h3>Write us</h3>
      <label for="fname">First Name</label>
     <input type="text" id="fname" name="firstname" placeholder="Your name">
 
@@ -61,29 +62,14 @@ input[type=submit]:hover {
     <input type="text" id="lname" name="lastname" placeholder="Your last name">
 
     <label for="email" class="form-label">Email <br></label>
-    <input type="text" id="email" placeholder="Your email" name="email" class="form-label" size="">
+    <input type="email" id="email" placeholder="Your email"required name="email" class="form-label">
 
     <label for="write us">Write us</label>
     <textarea id="write us" name="write us" placeholder="Write something.." style="height:200px" rows="4"></textarea>
 
-    <input type="submit" value="Send message">
-  </div>
-
-
-  <div class="column2">
-    
- </div>
-
-</form>
-
-
+    <input name="btsubmit"type="submit">
+  </form>
+</div>
 
 </body>
 </html>
-
-
-
-
-
-
-  
